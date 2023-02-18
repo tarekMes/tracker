@@ -4,8 +4,9 @@ class Expense {
     amount: number
     date: Date
 
-    constructor(description: string, amount: number, date: string) {
-        this.id = new Date().getTime().toString() + Math.random().toString()
+    constructor(id:string, description: string, amount: number, date: string) {
+        // this.id = new Date().getTime().toString() + Math.random().toString()
+        this.id = id
         this.description = description
         this.amount = amount 
         this.date =  date ? new Date(date) : new Date()

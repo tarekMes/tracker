@@ -31,6 +31,7 @@ export type expenseInput = {
 const ExpenseForm: React.FC<props> = ({ onSubmit, onCancel, submitLabelButton, defaultValues }) => {
     
     const [inputs, setInputs] = React.useState<expenseInput>({
+        
         amount: {
             value: defaultValues ? defaultValues.amount.toString() : '',
             isValid : true
@@ -61,7 +62,7 @@ const ExpenseForm: React.FC<props> = ({ onSubmit, onCancel, submitLabelButton, d
 
     const submitHandler = () => {
         
-        const expenseData = new Expense(inputs.description.value, +inputs.amount.value, inputs.date.value)
+        const expenseData = new Expense('', inputs.description.value, +inputs.amount.value, inputs.date.value)
         
         const amountIsValid = !isNaN(expenseData.amount) && expenseData.amount > 0;
         const dateIsValid = expenseData.date.toString() !== 'Invalid Date';
